@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Recipe from "./components/Recipe";
+import { Recipe as RecipeType } from "./types";
 
-function App() {
+interface Prop {
+  recipes: RecipeType[],
+}
+
+function App({ recipes }: Prop) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <article>
+      <header>
+        <h1>Delicious Recipes</h1>
       </header>
-    </div>
+      <div className="recipes">
+        {recipes.map((recipe, i) => (
+          <Recipe key={i} {...recipe} />
+        ))}
+      </div>
+    </article>
   );
 }
 
