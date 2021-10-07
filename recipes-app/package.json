@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "serve -l 8080 dist",
     "build": "webpack --mode production"
   },
   "keywords": [],
