@@ -1,4 +1,3 @@
-import React from "react";
 import { Ingredient as IngredientType } from "../types";
 
 type Prop = IngredientType;

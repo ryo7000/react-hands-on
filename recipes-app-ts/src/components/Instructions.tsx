@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Prop {
   title: string;
   steps: string[];

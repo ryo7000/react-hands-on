@@ -1,4 +1,3 @@
-import React from "react";
 import IngredientsList from "./IngredientsList";
 import Instructions from "./Instructions";
 import { Recipe as RecipeType } from "../types";

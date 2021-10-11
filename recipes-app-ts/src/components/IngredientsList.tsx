@@ -1,4 +1,3 @@
-import React from "react";
 import Ingredient from "./Ingredient";
 import { Ingredient as IngredientType } from "../types";
 
