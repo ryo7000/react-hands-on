@@ -1,24 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import Star from "./Star";
 
 interface Prop extends React.ComponentPropsWithoutRef<"div"> {
-  totalStars: number;
+  totalStars?: number;
+  selectedStars?: number;
 }
 
 export default function StarRating({
   style = {},
   totalStars = 5,
+  selectedStars = 5,
   ...others
 }: Prop) {
-  const [selectedStars, setSelectedStars] = useState(3);
   return (
     <div style={{ padding: "5px", ...style }} {...others}>
       {[...Array(totalStars)].map((_, i) => (
-        <Star
-          key={i}
-          selected={selectedStars > i}
-          onSelect={() => setSelectedStars(i + 1)}
-        />
+        <Star key={i} selected={selectedStars > i} />
       ))}
       <p>
         {selectedStars} of {totalStars} stars
