@@ -4,6 +4,7 @@ import { FaTrash } from "react-icons/fa";
 
 type Prop = ColorData & {
   onRemove?: (id: string) => void;
+  onRate?: (id: string, rate: number) => void;
 };
 
 export default function Color({
@@ -12,6 +13,7 @@ export default function Color({
   color,
   rating,
   onRemove = (e) => e,
+  onRate = (e) => e,
 }: Prop) {
   return (
     <section>
@@ -20,7 +22,10 @@ export default function Color({
         <FaTrash />
       </button>
       <div style={{ height: 50, backgroundColor: color }} />
-      <StarRating selectedStars={rating} />
+      <StarRating
+        selectedStars={rating}
+        onRate={(rating) => onRate(id, rating)}
+      />
     </section>
   );
 }
