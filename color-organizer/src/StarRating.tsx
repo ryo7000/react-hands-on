@@ -5,10 +5,14 @@ interface Prop extends React.ComponentPropsWithoutRef<"div"> {
   totalStars: number;
 }
 
-export default function StarRating({ style = {}, totalStars = 5 }: Prop) {
+export default function StarRating({
+  style = {},
+  totalStars = 5,
+  ...others
+}: Prop) {
   const [selectedStars, setSelectedStars] = useState(3);
   return (
-    <div style={{ padding: "5px", ...style }}>
+    <div style={{ padding: "5px", ...style }} {...others}>
       {[...Array(totalStars)].map((_, i) => (
         <Star
           key={i}
