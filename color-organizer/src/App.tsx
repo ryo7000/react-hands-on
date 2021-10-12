@@ -4,6 +4,14 @@ import ColorList from "./ColorList";
 import { ColorData } from "./types";
 
 export default function App() {
-  const [colors] = useState<ColorData[]>(colorData);
-  return <ColorList colors={colors} />;
+  const [colors, setColors] = useState<ColorData[]>(colorData);
+  return (
+    <ColorList
+      colors={colors}
+      onRemoveColor={(id) => {
+        const newColors = colors.filter((color) => color.id !== id);
+        setColors(newColors);
+      }}
+    />
+  );
 }
